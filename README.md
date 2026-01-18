@@ -1,5 +1,48 @@
 # RTL and RTL–QEMU Fault Injection
 
+```mermaid
+flowchart TD
+    subgraph "Primary Workflow"
+        A["RTL Design<br>(Verilog/VHDL)"] --> B["RTL-QEMU<br>Co-Simulation"];
+        B --> C["Fault Injection<br>Phase"];
+        C --> D["Result Observation"];
+    end
+
+    subgraph "RTL-QEMU Co-Simulation Details"
+        B1["QEMU<br>Emulates Full System & Software"] <--> B2["RTL Model<br>Precise Hardware Blocks"];
+    end
+
+    subgraph "Fault Injection Types"
+        C1["Bit Flip (0 ↔ 1)"];
+        C2["Stuck-at (0 or 1)"];
+        C3["Transient/Temporary"];
+        C4["Permanent"];
+    end
+
+    subgraph "Observed Results & Applications"
+        D1["System Crash"];
+        D2["Security Violation"];
+        D3["Silent Data Corruption"];
+        D4["Safety-Critical Systems<br>(Automotive, Aerospace)"];
+        D5["Hardware Security Research"];
+    end
+
+    D --> F["Key Objective:<br>Improve Hardware Security & Reliability"];
+    
+    C -.-> C1;
+    C -.-> C2;
+    C -.-> C3;
+    C -.-> C4;
+    D -.-> D1 & D2 & D3 & D4 & D5;
+
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#ffebee
+    style D fill:#e8f5e8
+    style F fill:#fff3e0
+```
+
+
 A Practical Overview for Digital Design, Verification, and Security
 
 # 1. Introduction
